@@ -1,0 +1,23 @@
+.title {
+    font-size: 2.5rem;
+}
+
+.menu-items {
+    list-style-type: none;
+}
+
+.menu-items li {
+    display: inline;
+}
+
+.menu-items a {
+    padding: 10px;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.active {
+    color: orange;
+}
