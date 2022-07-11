@@ -45,3 +45,18 @@ export const Section = ({ title, children }: { children: React.ReactNode; title:
         </div>
     );
 };
+
+export const FlexBox = () => {
+    return (
+        <div className={styles.flex_container_main}>
+            <div className={styles.flex_container_top}>
+                <div className={styles.flex_item}></div>
+                <div className={styles.flex_item}></div>
+            </div>
+            <div className={styles.flex_container_bottom}>
+                <div className={styles.flex_item}></div>
+                <div className={styles.flex_item}></div>
+            </div>
+        </div>
+    );
+};
