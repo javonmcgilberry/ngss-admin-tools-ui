@@ -1,0 +1,5 @@
+@use '../../theme/colors.module.scss' as colors;
+.app_container {
+    display: flex;
+    background-color: colors.$main-content;
+}
