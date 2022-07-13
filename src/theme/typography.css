@@ -61,3 +61,7 @@
 .condensed {
     font-family: 'One Dot Cd';
 }
+
+.bold {
+    font-weight: 700;
+}

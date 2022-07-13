@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { DetailedHTMLProps } from 'react';
 import '../../theme/typography.css';
 
 type Props = {
@@ -12,8 +12,9 @@ interface ITypography {
     variant: keyof typeof variantsMapping;
     color: string;
     children: React.ReactNode;
-    props?: Props;
+    props?: DetailedHTMLProps<React.HTMLAttributes<HTMLBodyElement>, HTMLBodyElement>;
     condensed?: boolean;
+    bold?: boolean;
 }
 
 const variantsMapping = {
@@ -34,7 +35,14 @@ const variantsMapping = {
 // color: the selected color
 // children: the node passed inside the Component
 // ...props: the default attribute of the Component
-const Typography = ({ variant, color, children, condensed = false, ...props }: ITypography) => {
+const Typography = ({
+    variant,
+    color,
+    children,
+    condensed = false,
+    bold = false,
+    ...props
+}: ITypography) => {
     // If the variant exists in variantsMapping, we use it.
     // Otherwise, use p tag instead.
     const Component = (variant ? variantsMapping[variant] : 'p') as React.ElementType<{
@@ -45,7 +53,7 @@ const Typography = ({ variant, color, children, condensed = false, ...props }: I
         <Component
             className={`${variant ? `typography--variant-${variant}` : ``} ${
                 color ? `typography--color-${color}` : ``
-            } ${condensed ? `condensed` : ''}`}
+            } ${condensed ? `condensed` : ''} ${bold ? `bold` : ''}`}
             {...props}
         >
             {children}

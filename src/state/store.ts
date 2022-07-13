@@ -4,6 +4,7 @@ import {
     CombinedState,
     combineReducers,
     configureStore,
+    PreloadedState,
     ThunkAction
 } from '@reduxjs/toolkit';
 import {
@@ -46,6 +47,13 @@ const reducer = (
 
 const persistedReducer = persistReducer(persistConfig, reducer);
 
+export const setupStore = (preloadedState?: PreloadedState<RootState>) => {
+    return configureStore({
+        reducer: reducer,
+        preloadedState
+    });
+};
+
 export const store = configureStore({
     reducer: persistedReducer,
     devTools: process.env.NODE_ENV !== 'production',
@@ -64,6 +72,7 @@ type Store = typeof store;
 
 export type AppDispatch = Store['dispatch'];
 export type RootState = ReturnType<Store['getState']>;
+export type AppStore = ReturnType<typeof setupStore>;
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type GetStateFromReducers<T> = T extends (...args: any[]) => infer Ret

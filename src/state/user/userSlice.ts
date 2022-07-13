@@ -4,11 +4,13 @@ import { RootState } from '../store';
 export interface UserSlice {
     firstName: string;
     lastName: string;
+    role: string;
 }
 
 const initialState: UserSlice = {
     firstName: '',
-    lastName: ''
+    lastName: '',
+    role: ''
 };
 
 export const LOGOUT = 'user/logout';
@@ -19,9 +21,13 @@ export const userSlice = createSlice({
     name: 'user',
     initialState,
     reducers: {
-        setUsername: (state, action: PayloadAction<{ firstName: string; lastName: string }>) => {
+        setUsername: (
+            state,
+            action: PayloadAction<{ firstName: string; lastName: string; role: string }>
+        ) => {
             state.firstName = action.payload.firstName;
             state.lastName = action.payload.lastName;
+            state.role = action.payload.role;
         }
     }
 });
