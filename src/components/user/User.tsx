@@ -7,18 +7,23 @@ import styles from './user.module.scss';
 
 const User = () => {
     const dispatch = useAppDispatch();
-    const username = useAppSelector((state) => selectUsername(state));
-    useEffect(() => {
-        dispatch(setUsername({ firstName: 'Johnny', lastName: 'Johnson' }));
-    }, [dispatch]);
+    const username = useAppSelector(selectUsername);
+    const role = useAppSelector((state) => state.user.role);
+    // useEffect(() => {
+    //     dispatch(
+    //         setUsername({ firstName: 'Johnny', lastName: 'Johnson', role: 'I.T. Administrator' })
+    //     );
+    // }, [dispatch, role]);
     return (
         <div className={styles.user}>
-            <Typography variant="h4" color="white">
-                {username}
-            </Typography>
-            <Typography variant={'subheading1'} color={'white'}>
-                SIGN OUT
-            </Typography>
+            <div>
+                <Typography variant="subheading1" color="white" bold>
+                    {username?.toUpperCase()}
+                </Typography>
+                <Typography variant="subheading2" color="white">
+                    {role?.toUpperCase()}
+                </Typography>
+            </div>
         </div>
     );
 };
