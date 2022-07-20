@@ -1,16 +1,13 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-import Header from './components/header/Header';
-import Sidebar from './components/sidebar/Sidebar';
-import Layout from './components/layout/Layout';
+import CouponLayout from './components/layout/Layout';
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import routes, { RoutePathDefinition } from './routes/routes';
 
 function App() {
     return (
         <BrowserRouter>
-            <Layout>
+            <CouponLayout>
                 <Routes>
                     <>
                         <Route path="/" element={<Navigate to="/dashboard" />} />
@@ -30,7 +27,7 @@ function App() {
                         />
                     </>
                 </Routes>
-            </Layout>
+            </CouponLayout>
         </BrowserRouter>
     );
 }

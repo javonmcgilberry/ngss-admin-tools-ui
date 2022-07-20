@@ -66,3 +66,50 @@
     padding-left: 0.5rem /* 8px */;
     padding-right: 0.5rem /* 8px */;
 }
+
+.flex_container_main {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items:flex-start; //normal is default
+    padding: 2rem; //32px
+    gap: 2rem; //32px
+    
+    width: fill;
+    align-content: flex-start;
+}
+
+.flex_container_top {
+    display: flex;
+    flex-flow: row wrap;
+    align-items:flex-start;
+    padding: 1rem; //16px
+    gap: 1rem; //16px
+
+    width: fill;
+    align-content: flex-start;
+    
+    background: #D8D8D8;
+}
+
+.flex_container_bottom {
+    display: flex;
+    flex-flow: column wrap;
+    align-items:flex-start;
+    padding: 1rem; //16px
+    gap: 1rem; //16px
+
+    width: fill;
+    align-content: flex-start;
+    height: 27rem;
+
+    background: #D8D8D8;
+}
+
+.flex_item {
+    flex: none;
+    width: 4rem; //62px
+    height: 4rem; //62px
+    background:  #002034;
+    order: 0;
+    flex-grow: 0;
+}

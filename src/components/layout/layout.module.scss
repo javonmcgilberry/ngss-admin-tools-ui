@@ -2,4 +2,5 @@
 .app_container {
     display: flex;
     background-color: colors.$main-content;
+    justify-content: stretch;
 }
